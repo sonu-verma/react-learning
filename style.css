@@ -1,0 +1,75 @@
+.app
+{
+    margin-left: 25px;
+    margin-right: 26px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+}
+.logo > img{
+    width: 90px;
+}
+
+.nav-items {
+    gap: 30px;
+    padding: 14px 29px 0px 0px;
+    font-size: 20px;
+    list-style-type: none;
+    display: flex
+;
+}
+
+
+/* resto card style */
+
+.body {
+    margin-top: 10px;
+}
+.resto-image img {
+    width: 250px;
+    height: 150px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+.search-input {
+    color: #848484;
+    border: 1px solid #dcd0d0;
+    border-radius: 8px;
+    width: 295px;
+    padding: 6px;
+    font-size: 13px;
+}
+
+.search-botton {
+    background: #ffc279;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    margin-left: -5px;
+}
+
+.resto-card {
+    border: 1px solid;
+    width: 251px;
+    height: 310px;
+    border-radius: 9px;
+    padding: 5px;
+    line-height: 33px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.time-rating{
+    display: flex;
+    justify-content: space-between;
+}
+/* resto card style */
