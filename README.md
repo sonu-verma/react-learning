@@ -1,4 +1,18 @@
 # Basic React Learning
+/*
+Header
+    - Logo 
+    - Navbar
+Body
+    - Search
+    - Resto Container
+        - Resto Card
+            - Img, Name of Resto, Rating, Cuisine, delivery Time
+Footer
+    - Copyright
+    - Links
+*/
+
 
 # Parcel
     - Dev Build 
@@ -20,6 +34,6 @@
 
 
 # Package.json
-
     - browserslist: can handle last browser list to support project 
 
+# React Hooks

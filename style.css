@@ -54,6 +54,13 @@
     margin-left: -5px;
 }
 
+.resto-container {
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 34px;
+}
+
 .resto-card {
     border: 1px solid;
     width: 251px;
