@@ -80,3 +80,55 @@
     justify-content: space-between;
 }
 /* resto card style */
+
+
+
+/* ---------- Shimmer style ----------------*/
+.shimmer-container {
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 34px;
+}
+
+.shimmer-card {
+    width: 251px;
+    height: 310px;
+    border-radius: 9px;
+    padding: 5px;
+    line-height: 33px;
+    background-color: #f6f3f3;
+}
+.shimmer-image {
+    background: #e9e1e1 !important;
+    padding: 69px;
+    border-radius: 8px;
+}
+.shimmer-title {
+    padding: 11px;
+    background: #e9e1e1;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+.shimmer-time-rating{
+    padding: 11px;
+    background: #e9e1e1;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+.shimmer-cuisine{
+    padding: 11px;
+    background: #e9e1e1;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+.shimmer-location{
+    padding: 11px;
+    background: #e9e1e1;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+/* ---------- Shimmer style ----------------*/

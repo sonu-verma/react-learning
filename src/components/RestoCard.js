@@ -1,11 +1,12 @@
 import { getLimitedWords } from '../utils/common'
+import { IMG_URL } from '../utils/constants';
 
 const RestoCard = (props) => {
     const {resto} =  props;
     return (
         <div className='resto-card'>
             <div className='resto-image'>
-                <img src="https://i.pinimg.com/736x/63/bc/77/63bc77206180eb114cfb3aa61c11e86c.jpg" />
+                <img src={IMG_URL + resto.cloudinaryImageId} />
             </div>
             <div className='card-title'>
                 {resto.name}

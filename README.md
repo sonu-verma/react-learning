@@ -37,3 +37,10 @@ Footer
     - browserslist: can handle last browser list to support project 
 
 # React Hooks
+(Normal Js Utility function)
+- useState - superpowerfull State variable in react
+- useEffect()
+
+
+# Fake ui
+Shimmer ui 
