@@ -132,3 +132,17 @@
     border-radius: 10px;
 }
 /* ---------- Shimmer style ----------------*/
+
+
+.clearedFilter{
+    padding: 8px;
+    background: #efefef;
+}
+.clearedFilter a {
+    color: red;
+    padding: 7px;
+    border-radius: 76px;
+}
+.searchTextSpan{
+    padding: 10px;
+}
