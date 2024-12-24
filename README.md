@@ -38,9 +38,19 @@ Footer
 
 # React Hooks
 (Normal Js Utility function)
-- useState - superpowerfull State variable in react
-- useEffect()
+- don't use outside components
+- don't use inside condition
 
+- useState - superpowerfull State variable in react
+
+- useEffect(callback, dependent array) 
+    - If no dependency array => useEffect is called every render
+    - if dependency array is empty = [] => useEffect is called on initial render(Just Once)
+    - if dependency array is given with perticular state then it will run on everytime when state will change
+        useEffect(callback, [stateName])
 
 # Fake ui
 Shimmer ui 
+
+# cors resolve
+https://cors.sh/

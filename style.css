@@ -84,7 +84,7 @@
 
 
 /* ---------- Shimmer style ----------------*/
-.shimmer-container {
+.shimmer-container > div{
     margin-top: 44px;
     display: flex;
     flex-wrap: wrap;
@@ -145,4 +145,122 @@
 }
 .searchTextSpan{
     padding: 10px;
+}
+
+/* Shimmer page style */
+.shimmer-page-container{
+    display: grid;
+    justify-content: center;
+}
+.shimmer-div {
+    width: 51vw;
+    margin-top: 53px;
+}
+
+
+.shimmer-page-title,
+.shimmer-page-time-rating,
+.shimmer-page-menu{
+    padding: 11px;
+    /* background: #e9e1e1; */
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+.shimmer-div .shimmer-page-title {
+    padding: 40px;
+    background: #dad0d0;
+}
+
+.shimmer-page-time-rating {
+    /* padding: 50px; */
+    display: flex;
+    justify-content: space-between;  
+    overflow: overlay;
+}
+
+.shimmer-page-time-rating > div {
+    background-color: #d3c9c9;
+    padding: 10px;
+    height: 154px;
+    justify-content: space-evenly;
+    width: 198px;
+    border-radius: 13px;
+    margin-right: 11px;
+}
+.shimmer-div .shimmer-page-menu {
+    /* display: flex; */
+    /* justify-content: space-evenly; */
+}
+.shimmer-page-menu > div {
+    background-color: #d3c9c9;
+    border-radius: 13px;
+    justify-content: space-evenly;
+    margin-top: 34px;
+    margin-bottom: 13px;
+    padding: 20px;
+    border-radius: 13px;
+}
+
+.restaurant-div{
+    margin-top: 50px;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+/* Shimmer page style */
+
+
+.distance {
+    display: inline-grid;
+    line-height: 38px;
+}
+
+.topPickImg{
+    width: 207px;
+    height: 154px;
+    border-radius: 8px;
+    margin-left: -4px;
+}
+
+
+.recommended-card .img-div > img{
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.info-div > div:first-child {
+    line-height: 5px;
+}
+
+.recommended-card {
+    display: flex;
+    justify-content: space-between;
+    background: #f7f4f4;
+    padding: 20px;
+    margin-bottom: 13px;
+    border-radius: 15px;
+}
+
+.restoCardLink{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-items > li > a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-items > li > a:hover{
+    color: rgb(202, 142, 87);
+}
+
+.ratingH4 span{
+    font-size: 31px;
+    color: green;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: 4px;
+    font-family: system-ui;
 }

@@ -3,6 +3,7 @@ import restoData from "../utils/restoData";
 import { useEffect, useState } from "react";
 import { isEmpty } from "../utils/common";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
 
@@ -19,7 +20,11 @@ const Body = () => {
     }, []);
 
     const fetchRestoData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.411646&lng=72.7909839&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.411646&lng=72.7909839&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",{
+            headers: {
+            'x-cors-api-key': 'temp_742b14bb38b9ef92cabc9d5ff5102593'
+            }
+          });
 
         const json =await data.json();
 
@@ -112,12 +117,12 @@ const Body = () => {
                </div>
             </div>
             {
-                filteredRestaurants.length === 0 && !isFiltered ? <Shimmer /> : filteredRestaurants.length === 0 && isFiltered ? 'No Data found' : (
+                filteredRestaurants.length === 0 && !isFiltered ? <Shimmer type='list' /> : filteredRestaurants.length === 0 && isFiltered ? 'No Data found' : (
                     <div className='resto-container'>
                     {
                         filteredRestaurants.map((restaurant, index) =>
                             //  console.log(restaurant.info.)
-                            <RestoCard key={restaurant.info.id} resto={restaurant.info} /> 
+                            <Link to={ "/restaurant/" + restaurant.info.id } className="restoCardLink"  key={restaurant.info.id}><RestoCard resto={restaurant.info} /></Link>
                         )
                     }
                     </div>

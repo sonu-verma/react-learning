@@ -16,7 +16,7 @@ const RestoCard = (props) => {
                     {resto.avgRating} Star
                 </div>
                 <div className='timing'>
-                    {resto.sla.slaString}
+                    {resto.sla?.slaString}
                 </div>
             </div>
             <div className='cuisine'>
