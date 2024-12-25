@@ -6,17 +6,18 @@ import Shimmer from "./Shimmer";
 const Drinks = () => {
 
     const drinks  = useDrinkMenu();
-
+    console.log(drinks);
     return <>
         {
-           
-            <div className='resto-container'>
+           drinks ? (
+            <div className='flex flex-wrap'>
             {
                 drinks?.map((drink)=>{
                     return <DrinkCard key={drink.idDrink} drink={drink} />
                 })
-            }
+            } 
             </div> 
+            ) : <Shimmer type="list" />
         }
     </>
 }

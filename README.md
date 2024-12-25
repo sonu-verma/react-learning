@@ -81,3 +81,7 @@ tailwind css
 bootstrap
 component ui
 styled component
+
+
+
+# Higher Order Components - takes the component and return the component

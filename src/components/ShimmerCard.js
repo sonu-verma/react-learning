@@ -1,19 +1,18 @@
 const ShimmerCard = () => {
     return <>
-        <div className='shimmer-card'>
-            <div className='shimmer-image'>
+        <div className='m-4 w-[271px] bg-slate-200 rounded-md '>
+            <div className='mb-5 p-16'>
+                
             </div>
-            <div className='shimmer-title'>
+            <div className='p-2 mb-10 bg-gray-300'>
+               
             </div>
-            <div className='shimmer-time-rating'>
-                <div className='shimmer-rating'>
-                </div>
-                <div className='shimmer-timing'>
-                </div>
+            <div className=' mb-10 bg-gray-300'>
             </div>
-            <div className='shimmer-cuisine'>
+            <div className='p-2  mb-10 bg-gray-300'>
+                
             </div>
-            <div className='shimmer-location'>
+            <div className='p-2  mb-10 bg-gray-300'>
             </div>
         </div>
     </>

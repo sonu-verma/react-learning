@@ -53,11 +53,11 @@ const Body = () => {
 
     return (
         <div className='body'>
-            <div style={{ display:"flex", justifyContent: "space-between"}}>
+            <div className="flex m-5 justify-between">
                <div className='search'>
-                    <input type='text' placeholder='Search' className='search-input' value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
+                    <input type='text' placeholder='Search' className='border border-black p-2 font-thin rounded-md w-96' value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
                     <button 
-                        className='search-botton' 
+                        className='bg-orange-300 p-2 rounded-md mr-0' 
                         onClick={
                                 () => { 
                                         if(searchText.length > 0){
@@ -83,19 +83,21 @@ const Body = () => {
                     >Search</button>
                     {
                         isFiltered ? 
-                        <span className="clearedFilter"><span className="searchTextSpan">{ filteredParam.length >0 ? filteredParam.join(", "): '' } {console.log("filteredParam",filteredParam) }</span>
-                            <button onClick={ (e) => {
-                            e.preventDefault();
-                            setSearchText('')
-                            fetchRestoData()
-                            setIsFiltered(false);
-                            setFilteredParam([])
+                        <span className="bg-yellow-600 m-2 p-2 rounded-sm items-center"><span className="p-2">{ filteredParam.length >0 ? filteredParam.join(", "): '' } {console.log("filteredParam",filteredParam) }</span>
+                            <button 
+                            className="bg-red-400 p-1.5 mr-[-9px]"
+                            onClick={ (e) => {
+                                e.preventDefault();
+                                setSearchText('')
+                                fetchRestoData()
+                                setIsFiltered(false);
+                                setFilteredParam([])
                         }}>X</button></span>
                         : ''
                     }
                </div>
                <div className="filter">
-                    <button  className='search-botton' 
+                    <button  className='bg-orange-300 p-2 rounded-md mr-0' 
                     onClick={
                         () => { 
                                 const filterRestaurants  = filteredRestaurants.filter( 
@@ -118,7 +120,7 @@ const Body = () => {
             </div>
             {
                 filteredRestaurants.length === 0 && !isFiltered ? <Shimmer type='list' /> : filteredRestaurants.length === 0 && isFiltered ? 'No Data found' : (
-                    <div className='resto-container'>
+                    <div className='flex flex-wrap'>
                     {
                         filteredRestaurants.map((restaurant, index) =>
                             //  console.log(restaurant.info.)
