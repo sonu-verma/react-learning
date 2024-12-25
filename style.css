@@ -264,3 +264,17 @@
     margin-top: 4px;
     font-family: system-ui;
 }
+
+
+.contact-container ul {
+    list-style: none;
+    line-height: 52px;
+    font-size: 21px;
+}
+
+.contact-top-bar{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+}

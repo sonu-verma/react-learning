@@ -54,3 +54,19 @@ Shimmer ui
 
 # cors resolve
 https://cors.sh/
+
+---------------------------------------------------------------------------------------
+                                        Class Component
+---------------------------------------------------------------------------------------
+- life cycle of class component is 
+    Construct call 
+    Render
+    componentDidMount
+
+- state -> need to use state in class component then we need to use super in construct method and after that we can call state using    this.state
+- componentDidMount -> used for api call and it work equalant to useEffect  
+
+
+
+
+Let's Get Classy -> start from 45 min remaining.

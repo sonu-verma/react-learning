@@ -33,7 +33,7 @@ const RestaurantMenu = () => {
     console.log("filterCardRecommanded =>", filterCardRecommanded);
     const { card } =  filterCardRecommanded.length > 0 ? filterCardRecommanded[0]?.card : [];
     
-    console.log("card =>", card);
+    console.log("card =>", restInfo?.cards);
     // return false;
     return  (
         <div className='restaurant-div'>
