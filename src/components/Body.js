@@ -51,6 +51,7 @@ const Body = () => {
 
     /* Used for filter from api */
 
+    console.log("restaurants: ", restaurants);
     return (
         <div className='body'>
             <div className="flex m-5 justify-between">

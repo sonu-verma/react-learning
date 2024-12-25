@@ -6,9 +6,9 @@ const RestoCard = (props) => {
     return (
         <div className='m-4 w-[271px] rounded-md bg-gray-100 hover:bg-gray-200'>
             <div className='resto-image'>
-                <img className='h-[220px] w-[271px] p-0 m-0 rounded-md' src={IMG_URL + resto.cloudinaryImageId} />
+                <img className='h-[220px] w-[271px] p-1 m-0 rounded-lg' src={IMG_URL + resto.cloudinaryImageId} />
             </div>
-            <div className='p-2 h-16 border-t-4 border-red-500 rounded-lg font-bold'>
+            <div className='p-2 h-16 border-t-4 border-red-500 rounded-lg font-bold hover:border-orange-400'>
                 {resto.name}
             </div>
             <div className='p-2 flex justify-between'>
