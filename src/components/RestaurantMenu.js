@@ -2,38 +2,24 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { IMG_URL, RESTO_URL } from '../utils/constants';
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 const RestaurantMenu = () => {
 
-    const [restInfo, setRestInfo] = useState([]);
     const  { id } = useParams();
-    useEffect(() => {
-        fetchRestaurantData();
-    }, []);
-
-    const fetchRestaurantData = async () => {
-        const restoData = await fetch( RESTO_URL + id,{
-            headers: {
-            'x-cors-api-key': 'temp_742b14bb38b9ef92cabc9d5ff5102593'
-            }
-          });
-        const json = await restoData.json();
-        setRestInfo(json.data);
-    }
+    
+    const restInfo = useRestaurantMenu(id);
 
     if(restInfo.length === 0) return <Shimmer type='page' />
 
     const { name, avgRatingString, costForTwoMessage, locality, areaName, cuisines, totalRatingsString,sla } =  restInfo?.cards[2].card?.card?.info;
 
 
-    const { carousel } = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-    // const { card } = 
+    const { carousel } = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
     const filterCardRecommanded = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter( restRecom => restRecom?.card?.card?.title === "Recommended" )
      
-    console.log("filterCardRecommanded =>", filterCardRecommanded);
     const { card } =  filterCardRecommanded.length > 0 ? filterCardRecommanded[0]?.card : [];
     
-    console.log("card =>", restInfo?.cards);
     // return false;
     return  (
         <div className='restaurant-div'>

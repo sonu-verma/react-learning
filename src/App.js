@@ -8,7 +8,15 @@ import Contact from './components/Contact';
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from './components/RestaurantMenu';
+import useOnlineStatus from './utils/useOnlineStatus';
+import Offline from './components/Offline';
 const App = () => {
+    
+
+    const onlineStatus = useOnlineStatus();
+    if(!onlineStatus){
+        return <Offline />;
+    }
     return  (
         <div className='app'>
             <Header />
