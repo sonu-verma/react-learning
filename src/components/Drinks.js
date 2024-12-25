@@ -7,20 +7,16 @@ const Drinks = () => {
 
     const drinks  = useDrinkMenu();
 
-    console.log("drinks", drinks);
-
     return <>
         {
-            drinks ?
-            ( 
-                <div className='resto-container'>
-                {
-                    drinks?.map((drink)=>{
-                        return <DrinkCard key={drink.idDrink} drink={drink} />
-                    })
-                }
-                </div> 
-            ) : <Shimmer />
+           
+            <div className='resto-container'>
+            {
+                drinks?.map((drink)=>{
+                    return <DrinkCard key={drink.idDrink} drink={drink} />
+                })
+            }
+            </div> 
         }
     </>
 }

@@ -10,6 +10,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from './components/RestaurantMenu';
 import useOnlineStatus from './utils/useOnlineStatus';
 import Offline from './components/Offline';
+import Shimmer from './components/Shimmer';
 
 // import Drinks from './components/Drinks';
 
@@ -39,7 +40,7 @@ const appRouter = createBrowserRouter([
                 element: <Body />
             },{
                 path: "/drinks",
-                element: <Suspense> <Drinks /> </Suspense>
+                element: <Suspense fallback={ <Shimmer type='list' /> }> <Drinks /> </Suspense>
             },
             {
                 path: "/about-us",
