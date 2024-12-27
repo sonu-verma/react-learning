@@ -1,4 +1,4 @@
-import RestoCard from "./RestoCard"
+import RestoCard, {WithPromotedRestoCard} from "./RestoCard"
 import restoData from "../utils/restoData";
 import { useEffect, useState } from "react";
 import { isEmpty } from "../utils/common";
@@ -51,7 +51,10 @@ const Body = () => {
 
     /* Used for filter from api */
 
-    console.log("restaurants: ", restaurants);
+    // console.log("filteredRestaurants: ", withPromotedRestoCard);
+    const WithPromotedCard = WithPromotedRestoCard(RestoCard);
+
+    // console.log("withPromotedCard", WithPromotedCard);
     return (
         <div className='body'>
             <div className="flex m-5 justify-between">
@@ -125,7 +128,14 @@ const Body = () => {
                     {
                         filteredRestaurants.map((restaurant, index) =>
                             //  console.log(restaurant.info.)
-                            <Link to={ "/restaurant/" + restaurant.info.id } className="restoCardLink"  key={restaurant.info.id}><RestoCard resto={restaurant.info} /></Link>
+                            <Link to={ "/restaurant/" + restaurant.info.id } className="restoCardLink"  key={restaurant.info.id}>
+                                { 
+                                    restaurant.info.veg ? 
+                                        <WithPromotedCard resto={restaurant.info} /> : 
+                                        <RestoCard resto={restaurant.info} /> 
+                                        
+                                }                                
+                            </Link>
                         )
                     }
                     </div>

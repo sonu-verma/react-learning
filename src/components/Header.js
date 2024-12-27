@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+    const [activeMenu, setActiveMenu] = useState("home");
     return (
         <div className='flex justify-between shadow-sm mb-2'>
             <div className='logo mx-2'>
@@ -8,19 +11,19 @@ const Header = () => {
             </div>
             <div className='flex items-center'>
                 <ul className='flex p-2'>
-                    <li className="p-5">
-                        <Link to="/">Home</Link>
+                    <li className={`p-5 ${activeMenu == 'home'? 'bg-orange-400 p-2':''}`}>
+                        <Link to="/" onClick={()=> setActiveMenu("home")}>Home</Link>
                     </li>
-                    <li className="p-5">
-                        <Link to="/drinks">Drinks</Link>
+                    <li className={`p-5 ${activeMenu == 'drinks'? 'bg-orange-400 p-2':''}`}>
+                        <Link to="/drinks"  onClick={()=> setActiveMenu("drinks")}>Drinks</Link>
                     </li>
-                    <li className="p-5">
-                        <Link to="/about-us">About Us</Link>
+                    <li className={`p-5 ${activeMenu == 'about'? 'bg-orange-400 p-2':''}`}>
+                        <Link to="/about-us"  onClick={()=> setActiveMenu("about")}>About Us</Link>
                     </li>
-                    <li className="p-5">
-                        <Link to="/contact-us">Contact Us</Link>
+                    <li className={`p-5 ${activeMenu == 'contact'? 'bg-orange-400 p-2':''}`}>
+                        <Link to="/contact-us"  onClick={()=> setActiveMenu("contact")}>Contact Us</Link>
                     </li>
-                    <li className="p-5">
+                    <li className={`p-5 ${activeMenu == ''? 'bg-orange-400 p-2':''}`}>
                         Cart
                     </li>
                 </ul>

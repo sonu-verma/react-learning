@@ -29,4 +29,26 @@ const RestoCard = (props) => {
     );
 }
 
+export const WithPromotedRestoCard = (RestoCard) => {
+    // console.log("RestoCard", RestoCard);
+    return (props) => {
+        return (
+            <div>
+                <label className='absolute mt-2 ml-5 px-2 bg-green-700 text-white rounded-sm'>Veg</label>
+                <RestoCard {...props} />
+             </div>
+        )
+    }
+}
+
 export default RestoCard
+
+// {
+//     position: absolute;
+//     margin-top: 3px;
+//     margin-left: 18px;
+//     background: green;
+//     color: white;
+//     padding: 3px;
+//     border-radius: 10px;
+// }
