@@ -18,6 +18,7 @@ const useRestaurantMenu = (id) => {
         });
 
         const jsonData = await fetchRestoAPi.json();
+        console.log("jsonData", jsonData);
         setRestInfo(jsonData.data);
     }
 

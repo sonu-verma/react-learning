@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
     const [activeMenu, setActiveMenu] = useState("home");
+    console.log("activeMenu", activeMenu);
     return (
         <div className='flex justify-between shadow-sm mb-2'>
             <div className='logo mx-2'>

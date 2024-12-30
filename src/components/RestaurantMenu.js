@@ -3,11 +3,14 @@ import Shimmer from "./Shimmer";
 import { IMG_URL, RESTO_URL } from '../utils/constants';
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
 
     const  { id } = useParams();
     
     const restInfo = useRestaurantMenu(id);
+
+    const [chooseCategory, setChooseCategory] = useState(null);
 
     if(restInfo.length === 0) return <Shimmer type='page' />
 
@@ -20,10 +23,14 @@ const RestaurantMenu = () => {
      
     const { card } =  filterCardRecommanded.length > 0 ? filterCardRecommanded[0]?.card : [];
     
-    console.log("render");
+
+
+    const categories = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        (category) => category.card?.["card"]?.['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" 
+    )
     // return false;
     return  (
-        <div className='m-5 mx-80'>
+        <div className='m-5 mx-60'>
             <div className="title">
                 <h2 className="font-bold">{ name }</h2>
             </div>
@@ -47,8 +54,8 @@ const RestaurantMenu = () => {
                         {
                             carousel.map(
                                 (topPick) => 
-                                <div className="border border-gray-950 rounded-lg m-2" key={topPick.bannerId}> 
-                                    <img  className="h-[150px] w-[200px] mx-1 rounded-md"  src={IMG_URL + topPick.dish.info.imageId} height="50px" width="50px" /> 
+                                <div className="border border-gray-950 rounded-lg m-2 w-[441px]" key={topPick.bannerId}> 
+                                    <img  className="h-[150px] w-[200px] rounded-md object-fill"  src={IMG_URL + topPick.dish.info.imageId} /> 
                                 </div>
                             )
                         }
@@ -57,36 +64,18 @@ const RestaurantMenu = () => {
                 ) : ''
             }
             
-           { card && <div className='recommended-div'>
-                <h2 className="font-bold text-2xl mt-8 mb-5">Recommended ({card?.itemCards?.length })</h2>
-                {
-                    card?.itemCards.map( (recommended) => {
-                        return (
-                                <div className="flex bg-gray-100 p-4 mb-2 rounded-lg hover:bg-gray-200 " key={recommended.card.info.id}>
-                                    <div className="info-div leading-loose">
-                                        <div>
-                                            <span className={ !recommended.card.info.isVeg?'bg-red-500 p-1 rounded-xl text-sm': 'bg-green-300 px-3 rounded-xl text-sm'}>{recommended.card.info.isVeg?'Veg': 'Non Veg'}</span>
-                                            <h4><b>{recommended.card.info.name}</b></h4>
-                                            <h4><b>Rs.{recommended.card.info.defaultPrice /100 || recommended.card.info.price /100 }</b></h4>
-                                            {
-                                                (recommended.card.info.ratings.aggregatedRating.rating)? <h4 className="ratingH4" style={ { marginLeft: "0px"}}><span className="font-bold text-3xl text-green-600">*</span>{recommended.card.info.ratings.aggregatedRating.rating } ({recommended.card.info.ratings.aggregatedRating.ratingCountV2})</h4>: ""
-                                            }
-                                            
-                                        </div>
-                                        <div>
-                                            <p>{ recommended.card.info.description }</p>
-                                        </div>
-                                    </div>
-                                    <div className="img-div">
-                                        <img className="h-[120px] w-[120px] mx-1 rounded-md"  src={ IMG_URL+recommended.card.info.imageId} />    
-                                    </div>
-                                </div>
-                            )
-                    })
-                }
-                
-            </div>} 
-           
+            {
+                categories?.map(   (category, index) => 
+                        // Controlled Component
+                        <RestaurantCategory 
+                            key={index} 
+                            category={category?.card?.card} 
+                            currentAccordion = { index == chooseCategory && true } 
+                            setChooseCategory = { () => setChooseCategory(index)}
+                        />
+                )
+            }
+          
         </div>
     );
 }

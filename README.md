@@ -49,6 +49,8 @@ Footer
     - if dependency array is given with perticular state then it will run on everytime when state will change
         useEffect(callback, [stateName])
 
+- createContext 
+    - useContext
 # Fake ui
 Shimmer ui 
 
