@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header';
 import Body from './components/Body';
@@ -11,22 +11,44 @@ import RestaurantMenu from './components/RestaurantMenu';
 import useOnlineStatus from './utils/useOnlineStatus';
 import Offline from './components/Offline';
 import Shimmer from './components/Shimmer';
+import UserContext from './utils/UserContext';
 
 // import Drinks from './components/Drinks';
 
 const Drinks = lazy( () => import('./components/Drinks') )
 const App = () => {
     
+    const [userInfo, setUserInfo] = useState(null);
 
     const onlineStatus = useOnlineStatus();
     if(!onlineStatus){
         return <Offline />;
     }
+
+
+    // api call and valid user 
+
+    useEffect( () => {
+        const loggedInUser = {
+            "id": 2,
+            "name": "Taksh Verma"
+        }
+
+        setUserInfo(loggedInUser);
+    }, []);
+ 
     return  (
-        <div className='app'>
-            <Header />
-            <Outlet />
-        </div>
+
+        // after authentication want to use data
+
+        <UserContext.Provider value={ {loggedInUser: userInfo, setUserInfo} }>
+            <div className='app'>
+            {/* <   UserContext.Provider value={ {loggedInUser: { id: 3, name: "JG Verma"}} }> */}
+                    <Header />
+                {/* </UserContext.Provider> */}
+                <Outlet />
+            </div>
+        </UserContext.Provider>
     );
 }
 

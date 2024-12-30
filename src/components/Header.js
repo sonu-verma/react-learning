@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
+import UserContext from "../utils/UserContext";
 const Header = () => {
 
     const [activeMenu, setActiveMenu] = useState("home");
-    console.log("activeMenu", activeMenu);
+
+    const  { loggedInUser }  = useContext(UserContext)
+
+    console.log('loggedInUser', loggedInUser);
+
     return (
         <div className='flex justify-between shadow-sm mb-2'>
             <div className='logo mx-2'>
@@ -26,6 +30,9 @@ const Header = () => {
                     </li>
                     <li className={`p-5 ${activeMenu == ''? 'bg-orange-400 p-2':''}`}>
                         Cart
+                    </li>
+                    <li className={`font-bold p-5 ${activeMenu == ''? 'bg-orange-400 p-2':''}`}>
+                        { loggedInUser ? loggedInUser.name: "" }
                     </li>
                 </ul>
             </div>
