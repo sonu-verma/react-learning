@@ -12,8 +12,10 @@ import useOnlineStatus from './utils/useOnlineStatus';
 import Offline from './components/Offline';
 import Shimmer from './components/Shimmer';
 import UserContext from './utils/UserContext';
-
+import { Provider } from 'react-redux';
+import appStore from './utils/AppStore';
 // import Drinks from './components/Drinks';
+import Cart from './components/Cart'
 
 const Drinks = lazy( () => import('./components/Drinks') )
 const App = () => {
@@ -40,15 +42,16 @@ const App = () => {
     return  (
 
         // after authentication want to use data
-
-        <UserContext.Provider value={ {loggedInUser: userInfo, setUserInfo} }>
-            <div className='app'>
-            {/* <   UserContext.Provider value={ {loggedInUser: { id: 3, name: "JG Verma"}} }> */}
-                    <Header />
-                {/* </UserContext.Provider> */}
-                <Outlet />
-            </div>
-        </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={ {loggedInUser: userInfo, setUserInfo} }>
+                <div className='app'>
+                {/* <   UserContext.Provider value={ {loggedInUser: { id: 3, name: "JG Verma"}} }> */}
+                        <Header />
+                    {/* </UserContext.Provider> */}
+                    <Outlet />
+                </div>
+            </UserContext.Provider>
+        </Provider>
     );
 }
 
@@ -75,6 +78,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurant/:id",
                 element: <RestaurantMenu />
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             }
         ],
         errorElement: <Error />

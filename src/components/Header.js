@@ -1,14 +1,16 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
 
     const [activeMenu, setActiveMenu] = useState("home");
 
     const  { loggedInUser }  = useContext(UserContext)
 
-    console.log('loggedInUser', loggedInUser);
+    const cart = useSelector((store) => store.cart.items);
 
+    console.log("cart", cart);
     return (
         <div className='flex justify-between shadow-sm mb-2'>
             <div className='logo mx-2'>
@@ -28,8 +30,8 @@ const Header = () => {
                     <li className={`p-5 ${activeMenu == 'contact'? 'bg-orange-400 p-2':''}`}>
                         <Link to="/contact-us"  onClick={()=> setActiveMenu("contact")}>Contact Us</Link>
                     </li>
-                    <li className={`p-5 ${activeMenu == ''? 'bg-orange-400 p-2':''}`}>
-                        Cart
+                    <li className={`font-bold p-5 ${activeMenu == ''? 'bg-orange-400 p-2':''}`}>
+                        <Link to="/cart">Cart { cart.length } items </Link>
                     </li>
                     <li className={`font-bold p-5 ${activeMenu == ''? 'bg-orange-400 p-2':''}`}>
                         { loggedInUser ? loggedInUser.name: "" }

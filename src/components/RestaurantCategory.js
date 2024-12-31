@@ -21,6 +21,7 @@ const RestaurantCategory = (props) => {
                         return <ItemCard 
                             key={itemCard.card.info.id} 
                             info={itemCard?.card?.info} 
+                            item = {itemCard}
                         />
                     })
                 ) : ''

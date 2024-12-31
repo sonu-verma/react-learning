@@ -1,8 +1,16 @@
+import { useDispatch } from "react-redux";
 import { IMG_URL } from "../utils/constants";
+import { addToCart } from "../utils/cartSlice";
 
 const ItemCard = (props) => {
-    const { info } = props
-    console.log("info", info);
+    const { info, item } = props
+    
+    const dispatch = useDispatch();
+
+    const handleAddToCartItem = (item) => {
+        dispatch(addToCart({...item, qty: 1 }))
+        console.log("item,", item)
+    }
     return <>
         {
          <div className="flex bg-gray-100 p-4 mb-2 rounded-lg hover:bg-gray-200 " key={info?.id}>
@@ -21,7 +29,7 @@ const ItemCard = (props) => {
             </div>
             <div className="w-3/12 p-4">
                 <div className="absolute ">
-                    <button className="px-1 mx-11 text-black bg-orange-400 rounded-sm">Add +</button>
+                    <button className="px-1 mx-11 text-black bg-orange-400 rounded-sm" onClick={ () => handleAddToCartItem(item) }>Add +</button>
                 </div>    
                 <img className="mx-1 rounded-md w-full"  src={ IMG_URL+info.imageId} />
             </div>
